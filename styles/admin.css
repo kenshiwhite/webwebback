@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Apply space-between to body */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; /* Добавьте пространство между заголовком и ссылкой */
+    align-items: center; /* Выровняйте элементы вертикально по центру */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+
+
+
+main {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+#crud {
+    flex: 1;
+    background-color: #444;
+}
+
+#crud ul {
+    list-style-type: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+#crud ul li {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    display: inline-block;
+}
+
+.cud {
+    width: 100%;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 4px;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.cud {
+    background-color: #666;
+}
+
+.crud{
+    background-color: #444;
+    padding: 10px;
+}
+
+.crud ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.crud ul li {
+    margin-bottom: 10px;
+}
+
+#concrete {
+    max-width: 70%;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel {
+    max-width: 70%;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-item {
+    width: 100%;
+    height: 500px; 
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+#side{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #666;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.a{
+    text-decoration: none;
+    color: white;
+}

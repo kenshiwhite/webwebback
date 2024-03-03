@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="./styles/add.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Panel</h1>
+        <nav>
+            <ul>
+                <li><a href="<%= lang === 'en' ? '/login' : '/login?lang=ru' %>" class="a"><%= lang === 'ru' ? 'Выйти' : 'Logout' %></a></li>
+                <form action="<%= lang === 'en' ? '/update?lang=en' : '/update?lang=ru' %>" class="form-inline ml-auto">
+                    <div class="form-group">
+                        <label for="langSelect" class="mr-2"style="color: white;"><%= lang === 'ru' ? 'Язык:' : 'Language:' %></label>
+                        <select class="form-control" id="langSelect" name="lang" onchange="this.form.submit()">
+                            <option value="en" <%= lang === 'en' ? 'selected' : '' %>>EN</option>
+                            <option value="ru" <%= lang === 'ru' ? 'selected' : '' %>>RU</option>
+                        </select>
+                    </div>
+                </form>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <aside>
+            <ul>
+                <li><button><a href="/add?lang=<%= lang %>" class="a"><%= lang === 'ru' ? 'Добавить пользователя' : 'Add user' %></a></button></li>
+                <li><button><a href="/update?lang=<%= lang %>" class="a"><%= lang === 'ru' ? 'Обновить пользователя' : 'Update user' %></a></button></li>
+                <li><button><a href="/delete?lang=<%= lang %>" class="a"><%= lang === 'ru' ? 'Удалить пользователя' : 'Delete user' %></a></button></li>
+                <li><button><a href="/adminCarousel?lang=<%= lang %>" class="a"><%= lang === 'ru' ? 'Посмотреть элементы' : 'See products' %></a></button></li>
+                <li><button><a href="/adminEdit?lang=<%= lang %>" class="a"><%= lang === 'ru' ? 'Изменить элементы' : 'Change products' %></a></button></li>
+            </ul>
+        </aside>
+        <main>
+            <h2>Update User</h2>
+            <div id="usersContainer">
+                <% users.forEach(user => { %>
+                    <div class="userCard">
+                        <form action="/update?lang=<%= lang %>" method="post">
+                            <input type="hidden" name="id" value="<%= user._id %>">
+                            <label for="username"><%= lang === 'ru' ? 'Имя пользователя:' : 'Username:' %></label>
+                            <input type="text" id="username" name="username" value="<%= user.username %>">
+                            <label for="password"><%= lang === 'ru' ? 'Пароль:' : 'Password:' %></label>
+                            <input type="text" id="password" name="password" value="<%= user.password %>">
+                            <label for="isAdmin"><%= lang === 'ru' ? 'Является админом' : 'Is Admin:' %></label>
+                            <input type="checkbox" id="isAdmin" name="isAdmin" <% if (user.isAdmin) { %> checked <% } %>>
+                            <button type="submit"><%= lang === 'ru' ? 'Обновить' : 'Update' %></button>
+                        </form>
+                    </div>
+                <% }) %>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2024 Yernar's Company</p>
+    </footer>
+</body>
+</html>

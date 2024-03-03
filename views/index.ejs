@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Search</title>
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+<body>
+    <header class="header">
+        <div class="company-name">Assignment 4</div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="/index?lang=<%= lang %>"><%= lang === 'ru' ? 'Процессоры' : 'Processors' %></a></li>
+                <li><a href="/currency?lang=<%= lang %>"><%= lang === 'ru' ? 'Генератор паролей' : 'Password generator' %></a></li>
+                <li><a href="/login?lang=<%= lang %>"><%= lang === 'ru' ? 'Выйти' : 'Log out' %></a></li>
+                <form action="<%= lang === 'en' ? '/index?lang=en' : '/index?lang=ru' %>" class="form-inline ml-auto">
+                    <div class="form-group">
+                        <label for="langSelect" class="mr-2"style="color: white;"><%= lang === 'ru' ? 'Язык:' : 'Language:' %></label>
+                        <select class="form-control" id="langSelect" name="lang" onchange="this.form.submit()">
+                            <option value="en" <%= lang === 'en' ? 'selected' : '' %>>EN</option>
+                            <option value="ru" <%= lang === 'ru' ? 'selected' : '' %>>RU</option>
+                        </select>
+                    </div>
+                </form>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1><%= lang === 'ru' ? 'Процессоры' : 'Processors' %></h1>
+        <form action="/index?lang=<%= lang %>" method="post">
+            <input type="text" name="q" placeholder="<%= lang === 'ru' ? 'Введите процессор' : 'Enter a processor' %>">
+            <button type="submit"><%= lang === 'ru' ? 'Поиск' : 'Search' %></button>
+        </form>
+        <ul>
+            <% processors.forEach(processor => { %>
+                <li>
+                    <strong>Name:</strong> <%= processor.CPU_Name %><br>
+                    <strong>Category:</strong> <%= processor.Category %><br>
+                    <strong>Cores:</strong> <%= processor.Cores %><br>
+                    <strong>Price:</strong> <%= processor.Price %><br>
+                    <!-- Добавьте другие свойства процессора, которые хотите отобразить -->
+                </li>
+                <br>
+            <% }); %>
+        </ul>
+    </div>
+
+    <footer style="display: flex; justify-content: center; align-items: center; width: 100%; height: 70px; background-color: rgb(104, 104, 104);">
+        Yernar Yeskindirov SE-2230
+    </footer>
+</body>
+</html>
